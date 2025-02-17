@@ -3,16 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
     <title>Crocodile Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            border: 2px solid #4caf50;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #factDisplay {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1>Crocodile Facts</h1>
-        <div id="factDisplay" class="fact-display">Click the button to see a fact!</div>
-        <button id="factButton">Show Random Fact</button>
+        <button id="factButton">Get Random Fact</button>
+        <p id="factDisplay"></p>
     </div>
-    <script src="script.js"></script>
+    <script>
+        const crocodileFacts = [
+            { "fact": "Crocodiles are reptiles that belong to the family Crocodylidae." },
+            { "fact": "They are found in tropical regions of Africa, Asia, the Americas, and Australia." },
+            { "fact": "Crocodiles can live for over 70 years in the wild." },
+            { "fact": "They are carnivorous and primarily feed on fish, birds, and mammals." },
+            { "fact": "Crocodiles have powerful jaws that can exert tremendous pressure." },
+            { "fact": "They are excellent swimmers and can hold their breath underwater for up to an hour." },
+            { "fact": "Crocodiles are cold-blooded, relying on external temperatures to regulate their body heat." },
+            { "fact": "They have a unique method of communication, using vocalizations, body language, and even water splashes." },
+            { "fact": "Crocodiles can be found in both freshwater and saltwater habitats." },
+            { "fact": "The largest species, the saltwater crocodile, can grow up to 23 feet long." }
+        ];
+
+        document.getElementById('factButton').addEventListener('click', function() {
+            const randomIndex = Math.floor(Math.random() * crocodileFacts.length);
+            const randomFact = crocodileFacts[randomIndex].fact;
+            document.getElementById('factDisplay').innerText = randomFact;
+        });
+    </script>
 </body>
 </html>
-
